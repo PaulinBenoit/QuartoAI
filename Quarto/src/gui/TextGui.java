@@ -5,7 +5,9 @@
  */
 package gui;
 
+import java.util.Scanner;
 import quarto.Case;
+import quarto.Joueur;
 import quarto.Piece;
 import quarto.PieceConstante;
 import quarto.Plateau;
@@ -15,6 +17,10 @@ import quarto.Plateau;
  * @author pauli
  */
 public class TextGui implements IGui {
+
+    public TextGui() {
+
+    }
 
     @Override
     public void affichePiece(Piece piece) {
@@ -61,17 +67,76 @@ public class TextGui implements IGui {
     @Override
     public void affichePlateau(Plateau plateau) {
         String affichage;
-        
-        affichage = "---------------------";
+
+        affichage = "------------------------";
         System.out.println(affichage);
-        
-        for (int i = 0; i < 4; i++) {   
+
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 afficheCase(plateau.getCase(i, j));
             }
+            System.out.println(); 
             System.out.println(affichage);
         }
-        System.out.println(affichage);
     }
 
+    @Override
+    public Piece choixPiece(Piece[] pieces) {
+        int numPiece;
+        Scanner scan = new Scanner(System.in);
+        
+        numPiece = scan.nextInt();
+        return pieces[numPiece];
+    }
+
+    @Override
+    public void affichePieces(Piece[] pieces) {
+        String affichage;
+
+        for (int i = 0; i < pieces.length; i++) {
+            affichage = i + " : ";
+            System.out.print(affichage);
+            affichePiece(pieces[i]);
+            System.out.println();
+        }
+    }
+
+    @Override
+    public Case choixCase(Case[] cases) {
+        int numCase;
+        Scanner scan = new Scanner(System.in);
+        
+        numCase = scan.nextInt();
+        return cases[numCase];
+    }
+
+    @Override
+    public void afficheJoueur(Joueur joueur) {
+        String affichage;
+        
+        affichage = joueur.getNomJoueur();
+        System.out.print(affichage);
+    }
+
+    @Override
+    public void afficheTourJoueur(Joueur joueur) {
+        String affichage;
+        
+        affichage = "Tour de : ";
+        System.out.print(affichage);
+        afficheJoueur(joueur);
+        System.out.println();
+    }
+
+    @Override
+    public void afficheCases(Case[] cases) {
+        String affichage;
+
+        for (int i = 0; i < cases.length; i++) {
+            affichage = i + " : ";
+            System.out.print(affichage);
+            afficheCase(cases[i]);
+            System.out.println();
+        }
+    }
 }

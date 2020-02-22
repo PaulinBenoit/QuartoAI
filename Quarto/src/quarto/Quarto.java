@@ -8,50 +8,54 @@ import gui.TextGui;
 public class Quarto {
 
     public static void main(String[] args) {
-        QuartoPiece[] pieces = new QuartoPiece[16];
-        pieces[0] = new QuartoPiece(Carac.Petit, Carac.Clair, Carac.Carré, Carac.Plein);
-        pieces[1] = new QuartoPiece(Carac.Grand, Carac.Clair, Carac.Carré, Carac.Plein);
-        pieces[2] = new QuartoPiece(Carac.Petit, Carac.Sombre, Carac.Carré, Carac.Plein);
-        pieces[3] = new QuartoPiece(Carac.Grand, Carac.Sombre, Carac.Carré, Carac.Plein);
-        pieces[4] = new QuartoPiece(Carac.Petit, Carac.Clair, Carac.Rond, Carac.Plein);
-        pieces[5] = new QuartoPiece(Carac.Grand, Carac.Clair, Carac.Rond, Carac.Plein);
-        pieces[6] = new QuartoPiece(Carac.Petit, Carac.Sombre, Carac.Rond, Carac.Plein);
-        pieces[7] = new QuartoPiece(Carac.Grand, Carac.Sombre, Carac.Rond, Carac.Plein);
-        pieces[8] = new QuartoPiece(Carac.Petit, Carac.Clair, Carac.Carré, Carac.Creux);
-        pieces[9] = new QuartoPiece(Carac.Grand, Carac.Clair, Carac.Carré, Carac.Creux);
-        pieces[10] = new QuartoPiece(Carac.Petit, Carac.Sombre, Carac.Carré, Carac.Creux);
-        pieces[11] = new QuartoPiece(Carac.Grand, Carac.Sombre, Carac.Carré, Carac.Creux);
-        pieces[12] = new QuartoPiece(Carac.Petit, Carac.Clair, Carac.Rond, Carac.Creux);
-        pieces[13] = new QuartoPiece(Carac.Grand, Carac.Clair, Carac.Rond, Carac.Creux);
-        pieces[14] = new QuartoPiece(Carac.Petit, Carac.Sombre, Carac.Rond, Carac.Creux);
-        pieces[15] = new QuartoPiece(Carac.Grand, Carac.Sombre, Carac.Rond, Carac.Creux);
+        Piece[] piecesDispo = InitGame.initPieces();
+        Case[][] casesPlateau = InitGame.initCases();
+        TextGui gui = new TextGui();
         
-        QuartoPiece[] piecesDispo = pieces;
-        
-        QuartoPlateau plateau = new QuartoPlateau();
-        QuartoJoueur joueur1 = new QuartoJoueur();
-        QuartoJoueur joueur2 = new QuartoJoueur();
+        Plateau plateau = new Plateau(casesPlateau);
+        Joueur joueur1 = new Joueur(1, "Joueur 1");
+        Joueur joueur2 = new Joueur(2, "Joueur 2");
+        Piece pieceChoisie = new Piece();
+        Case caseChoisie = new Case();
 
-        Scanner scan1 = new Scanner(System.in);
-        int numPiece;
-        int numCase;
+        boolean jeu_en_cours = true;
         
-        while(true){
-            //choisir une piece parmis les disponibles (Joueur1)
+        while(jeu_en_cours){
+            //J1 choisit une pièce P1 parmis les disponibles
+            gui.afficheTourJoueur(joueur1);
+            gui.affichePieces(piecesDispo);
+            pieceChoisie = gui.choixPiece(piecesDispo);
             
-            System.out.println("Choisir une piece parmis les disponible");
-            for(int i = 0; i < piecesDispo.length; i++){
-                System.out.println("Piece "+ i + " : " + piecesDispo[i].getTaille().toString() + " " + piecesDispo[i].getCouleur().toString() + " " + piecesDispo[i].getForme().toString() + " " + piecesDispo[i].getRemplissage().toString());
-            }
-            numPiece = scan1.nextInt();
-            //choisir un emplacement du plateau vide (Joueur2)
-            System.out.println("Choisir un emplacement du plateau : ");
-            plateau.affichePlateau();
-            numCase = scan1.nextInt();
-            //poser la piece choisie sur l'emplacement du plateau choisi (Joueur2)
-            plateau.setCase(numCase/4, numCase%4, piecesDispo[numPiece]);
-            //vérifier la victoire
-            //changement de joueur
+            //J2 choisit une case libre C1
+            gui.afficheTourJoueur(joueur2);
+            gui.affichePlateau(plateau);
+            gui.afficheCases(plateau.getCasesLibres());
+            caseChoisie = gui.choixCase(plateau.getCasesLibres());
+            
+            //J2 pose la pièce P1 sur la case libre C1
+            plateau.posePiece(caseChoisie, pieceChoisie);
+            gui.affichePlateau(plateau);
+            
+            //vérification victoire de J2
+            
+            
+            //J2 choisit une pièce P2 parmis les disponibles
+            gui.afficheTourJoueur(joueur2);
+            gui.affichePieces(piecesDispo);
+            pieceChoisie = gui.choixPiece(piecesDispo);
+            
+            //J1 choisit une case libre C2
+            gui.afficheTourJoueur(joueur1);
+            gui.affichePlateau(plateau);
+            gui.afficheCases(plateau.getCasesLibres());
+            caseChoisie = gui.choixCase(plateau.getCasesLibres());
+            
+            //J1 pose la pièce P2 sur la case libre C2
+            plateau.posePiece(caseChoisie, pieceChoisie);
+            gui.affichePlateau(plateau);
+            
+            //vérification victoire de J1
+            
         }
         
     }
