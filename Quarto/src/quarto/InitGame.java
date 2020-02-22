@@ -9,13 +9,7 @@ package quarto;
  *
  * @author pauli
  */
-public enum Carac {
-    Grand,
-    Petit,
-    Clair,
-    Sombre,
-    Rond,
-    Carré,
-    Creux,
-    Plein
+public class InitGame {
+    
+    
 }

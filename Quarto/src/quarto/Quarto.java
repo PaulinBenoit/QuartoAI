@@ -2,10 +2,12 @@ package quarto;
 
 import java.util.Scanner;
 
+//moteur de jeu
+import gui.TextGui;
+
 public class Quarto {
 
     public static void main(String[] args) {
-        Fenetre fenetre = new Fenetre();
         QuartoPiece[] pieces = new QuartoPiece[16];
         pieces[0] = new QuartoPiece(Carac.Petit, Carac.Clair, Carac.Carré, Carac.Plein);
         pieces[1] = new QuartoPiece(Carac.Grand, Carac.Clair, Carac.Carré, Carac.Plein);
@@ -36,6 +38,7 @@ public class Quarto {
         
         while(true){
             //choisir une piece parmis les disponibles (Joueur1)
+            
             System.out.println("Choisir une piece parmis les disponible");
             for(int i = 0; i < piecesDispo.length; i++){
                 System.out.println("Piece "+ i + " : " + piecesDispo[i].getTaille().toString() + " " + piecesDispo[i].getCouleur().toString() + " " + piecesDispo[i].getForme().toString() + " " + piecesDispo[i].getRemplissage().toString());
@@ -52,4 +55,5 @@ public class Quarto {
         }
         
     }
+            
 }
