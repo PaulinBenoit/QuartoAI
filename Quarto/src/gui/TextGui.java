@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import quarto.Case;
 import quarto.Joueur;
@@ -102,12 +103,12 @@ public class TextGui implements IGui {
     }
 
     @Override
-    public Case choixCase(Case[] cases) {
+    public Case choixCase(ArrayList<Case> cases) {
         int numCase;
         Scanner scan = new Scanner(System.in);
         
         numCase = scan.nextInt();
-        return cases[numCase];
+        return cases.get(numCase);
     }
 
     @Override
@@ -129,14 +130,22 @@ public class TextGui implements IGui {
     }
 
     @Override
-    public void afficheCases(Case[] cases) {
+    public void afficheCases(ArrayList<Case> cases) {
         String affichage;
 
-        for (int i = 0; i < cases.length; i++) {
+        for (int i = 0; i < cases.size(); i++) {
             affichage = i + " : ";
             System.out.print(affichage);
-            afficheCase(cases[i]);
+            afficheCase(cases.get(i));
             System.out.println();
         }
+    }
+
+    @Override
+    public void afficheVictoire(Joueur joueur) {
+        String affichage;
+        
+        affichage = "Le joueur " + joueur.getNomJoueur() + " a remporté la partie !";
+        System.out.println(affichage);
     }
 }

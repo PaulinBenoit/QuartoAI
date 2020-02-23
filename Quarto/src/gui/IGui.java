@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gui;
+import java.util.ArrayList;
 import quarto.Case;
 import quarto.Joueur;
 import quarto.Piece;
@@ -17,11 +18,12 @@ public interface IGui {
     public void affichePiece(Piece piece);
     public void affichePieces(Piece[] pieces);
     public void afficheCase(Case the_case);
-    public void afficheCases(Case[] cases);
+    public void afficheCases(ArrayList<Case> cases);
     public void affichePlateau(Plateau plateau);
     public void afficheJoueur(Joueur joueur);
-    public void afficheTourJoueur(Joueur joueur);        
+    public void afficheTourJoueur(Joueur joueur); 
+    public void afficheVictoire(Joueur joueur);
     
     public Piece choixPiece(Piece[] pieces);
-    public Case choixCase(Case[] cases);
+    public Case choixCase(ArrayList<Case> cases);
 }

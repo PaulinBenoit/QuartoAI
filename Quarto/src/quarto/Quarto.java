@@ -37,7 +37,10 @@ public class Quarto {
             gui.affichePlateau(plateau);
             
             //vérification victoire de J2
-            
+            if(plateau.isWin()){
+                jeu_en_cours = false;
+                gui.afficheVictoire(joueur2);
+            }
             
             //J2 choisit une pièce P2 parmis les disponibles
             gui.afficheTourJoueur(joueur2);
@@ -55,7 +58,10 @@ public class Quarto {
             gui.affichePlateau(plateau);
             
             //vérification victoire de J1
-            
+            if(plateau.isWin()){
+                jeu_en_cours = false;
+                gui.afficheVictoire(joueur1);
+            }
         }
         
     }
