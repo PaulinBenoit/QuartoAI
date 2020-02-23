@@ -5,30 +5,32 @@
  */
 package quarto;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author pauli
  */
 public class InitGame {
     
-    public static Piece[] initPieces(){
-        Piece[] pieces = new Piece[16];
-        pieces[0] = new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.PLEIN);
-        pieces[1] = new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.PLEIN);
-        pieces[2] = new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.PLEIN);
-        pieces[3] = new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.PLEIN);
-        pieces[4] = new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.PLEIN);
-        pieces[5] = new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.PLEIN);
-        pieces[6] = new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.PLEIN);
-        pieces[7] = new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.PLEIN);
-        pieces[8] = new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.CREUX);
-        pieces[9] = new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.CREUX);
-        pieces[10] = new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.CREUX);
-        pieces[11] = new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.CREUX);
-        pieces[12] = new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.CREUX);
-        pieces[13] = new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.CREUX);
-        pieces[14] = new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.CREUX);
-        pieces[15] = new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.CREUX);
+    public static ArrayList<Piece> initPieces(){
+        ArrayList<Piece> pieces = new ArrayList<>();
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.PLEIN));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.CARRE, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.CARRE, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.BLANC, PieceConstante.ROND, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.PETIT, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.CREUX));
+        pieces.add(new Piece(PieceConstante.GRAND, PieceConstante.NOIR, PieceConstante.ROND, PieceConstante.CREUX));
         
         return pieces;
     }

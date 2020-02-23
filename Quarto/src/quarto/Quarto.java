@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 //moteur de jeu
 import gui.TextGui;
+import java.util.ArrayList;
 
 public class Quarto {
 
     public static void main(String[] args) {
-        Piece[] piecesDispo = InitGame.initPieces();
+        ArrayList<Piece> piecesDispo = InitGame.initPieces();
         Case[][] casesPlateau = InitGame.initCases();
         TextGui gui = new TextGui();
         
@@ -46,6 +47,7 @@ public class Quarto {
             gui.afficheTourJoueur(joueur2);
             gui.affichePieces(piecesDispo);
             pieceChoisie = gui.choixPiece(piecesDispo);
+            piecesDispo.remove(pieceChoisie);
             
             //J1 choisit une case libre C2
             gui.afficheTourJoueur(joueur1);

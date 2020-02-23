@@ -82,22 +82,22 @@ public class TextGui implements IGui {
     }
 
     @Override
-    public Piece choixPiece(Piece[] pieces) {
+    public Piece choixPiece(ArrayList<Piece> pieces) {
         int numPiece;
         Scanner scan = new Scanner(System.in);
         
         numPiece = scan.nextInt();
-        return pieces[numPiece];
+        return pieces.get(numPiece);
     }
 
     @Override
-    public void affichePieces(Piece[] pieces) {
+    public void affichePieces(ArrayList<Piece> pieces) {
         String affichage;
 
-        for (int i = 0; i < pieces.length; i++) {
+        for (int i = 0; i < pieces.size(); i++) {
             affichage = i + " : ";
             System.out.print(affichage);
-            affichePiece(pieces[i]);
+            affichePiece(pieces.get(i));
             System.out.println();
         }
     }
