@@ -26,6 +26,7 @@ public class Quarto {
             gui.afficheTourJoueur(joueur1);
             gui.affichePieces(piecesDispo);
             pieceChoisie = gui.choixPiece(piecesDispo);
+            piecesDispo.remove(pieceChoisie);
             
             //J2 choisit une case libre C1
             gui.afficheTourJoueur(joueur2);
