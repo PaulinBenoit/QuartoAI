@@ -73,6 +73,15 @@ public class NeuronNetwork {
         update_weights_bias(eta);
     }
     
+    public void train(TrainSet set, int loops, int batch_size){
+        for(int i = 0; i < loops; i++){
+            TrainSet batch = set.extractBatch(batch_size);
+            for(int b = 0; b < batch.size(); b++){
+                this.train(batch.getInput(b), batch.getOutput(b), 0.3);
+            }
+        }
+    }
+    
     public void backprop_error(double[] target){
         for(int neuron = 0; neuron < NETWORK_LAYER_SIZES[NETWORK_SIZE-1]; neuron++){
             error_output[NETWORK_SIZE-1][neuron] = (output[NETWORK_SIZE-1][neuron] - target[neuron])
