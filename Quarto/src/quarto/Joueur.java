@@ -5,6 +5,9 @@
  */
 package quarto;
 
+import ai.GeneticClient;
+import ai.NeuronNetwork;
+
 /**
  *
  * @author pauli

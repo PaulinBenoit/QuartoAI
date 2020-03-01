@@ -4,14 +4,14 @@ package ai;
  *
  * @author pauli
  */
-public class NeuronNetwork {
+public class NeuronNetwork{
 
-    private double[][] output;
-    private double[][][] weights;
-    private double[][] bias;
+    public double[][] output;
+    public double[][][] weights;
+    public double[][] bias;
     
-    private double [][] error_output;
-    private double [][] derivative_output;
+    public double [][] error_output;
+    public double [][] derivative_output;
 
     public final int[] NETWORK_LAYER_SIZES;
     public final int INPUT_SIZE;

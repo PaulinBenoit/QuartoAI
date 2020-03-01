@@ -15,6 +15,15 @@ public class testAI {
     public static void main(String[] args){
         System.out.println("hey");
         
+        ArrayList<NeuronNetwork>
+        
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
+        NeuronNetwork net = new NeuronNetwork(4,2,3,5);
         NeuronNetwork net = new NeuronNetwork(4,2,3,5);
         
         TrainSet set = new TrainSet(4,5);
